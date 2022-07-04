@@ -198,7 +198,7 @@ class _LoginUIState extends State<LoginUI> {
                         child: Container(
                           alignment: Alignment.centerRight,
                           child: const Text(
-                            'Forgor password?',
+                            'Forgot password?',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 14,
