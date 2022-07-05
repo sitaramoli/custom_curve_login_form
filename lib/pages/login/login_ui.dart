@@ -1,8 +1,12 @@
 import 'package:custom_curve_login_ui/constants/color_constants.dart';
+import 'package:custom_curve_login_ui/helpers/slide_right_route.dart';
+import 'package:custom_curve_login_ui/pages/signup/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../helpers/slide_left_route.dart';
 
 class LoginUI extends StatefulWidget {
   const LoginUI({Key? key}) : super(key: key);
@@ -36,9 +40,10 @@ class _LoginUIState extends State<LoginUI> {
           height: 550,
           width: 500,
           decoration: BoxDecoration(
-              gradient:
-                  const LinearGradient(colors: ColorConstants.FORM_GRADIENT),
-              borderRadius: BorderRadius.circular(20)),
+            gradient:
+                const LinearGradient(colors: ColorConstants.FORM_GRADIENT),
+            borderRadius: BorderRadius.circular(20),
+          ),
           child: Padding(
             padding: const EdgeInsets.only(top: 28),
             child: Form(
@@ -49,13 +54,33 @@ class _LoginUIState extends State<LoginUI> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(bottom: 18),
-                      child: Text(
-                        "Log In",
-                        style: GoogleFonts.sourceCodePro(
-                          color: Colors.white,
-                          fontSize: 26,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            "Log In",
+                            style: GoogleFonts.sourceCodePro(
+                              color: ColorConstants.WHITE,
+                              fontSize: 26,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(context,
+                                  SlideLeftRoute(page: const SignupPage()));
+                            },
+                            behavior: HitTestBehavior.opaque,
+                            child: Text(
+                              'Sign Up',
+                              style: GoogleFonts.sourceCodePro(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400,
+                                color: ColorConstants.WHITE,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
 
@@ -64,41 +89,42 @@ class _LoginUIState extends State<LoginUI> {
                       padding:
                           const EdgeInsets.only(top: 15, left: 10, right: 10),
                       child: TextFormField(
-                        cursorColor: Colors.white,
-                        style: const TextStyle(color: Colors.white),
+                        cursorColor: ColorConstants.WHITE,
+                        style: const TextStyle(color: ColorConstants.WHITE),
                         decoration: InputDecoration(
                           hintText: "Enter your email",
                           errorStyle:
                               const TextStyle(color: ColorConstants.ERROR),
                           hintStyle: const TextStyle(
-                              color: Colors.white,
+                              color: ColorConstants.WHITE,
                               fontWeight: FontWeight.w400,
                               letterSpacing: 1.5,
                               fontSize: 16),
                           labelText: 'Email',
-                          labelStyle: const TextStyle(color: Colors.white),
+                          labelStyle:
+                              const TextStyle(color: ColorConstants.WHITE),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(14),
                             borderSide: const BorderSide(
-                              color: Colors.white,
+                              color: ColorConstants.WHITE,
                             ),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(14),
                             borderSide: const BorderSide(
-                              color: Colors.white,
+                              color: ColorConstants.WHITE,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(14),
                             borderSide: const BorderSide(
-                              color: Colors.white,
+                              color: ColorConstants.WHITE,
                             ),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(14),
                             borderSide: const BorderSide(
-                              color: Colors.white,
+                              color: ColorConstants.WHITE,
                             ),
                           ),
                         ),
@@ -125,8 +151,8 @@ class _LoginUIState extends State<LoginUI> {
                       padding:
                           const EdgeInsets.only(top: 15, left: 10, right: 10),
                       child: TextFormField(
-                        cursorColor: Colors.white,
-                        style: const TextStyle(color: Colors.white),
+                        cursorColor: ColorConstants.WHITE,
+                        style: const TextStyle(color: ColorConstants.WHITE),
                         obscureText: !_passwordVisible,
                         decoration: InputDecoration(
                           hintText: "Enter your password",
@@ -140,40 +166,41 @@ class _LoginUIState extends State<LoginUI> {
                               !_passwordVisible
                                   ? Icons.visibility
                                   : Icons.visibility_off,
-                              color: Colors.white,
+                              color: ColorConstants.WHITE,
                             ),
                           ),
                           errorStyle:
                               const TextStyle(color: ColorConstants.ERROR),
                           hintStyle: const TextStyle(
-                              color: Colors.white,
+                              color: ColorConstants.WHITE,
                               fontWeight: FontWeight.w400,
                               letterSpacing: 1.5,
                               fontSize: 16),
                           labelText: 'Password',
-                          labelStyle: const TextStyle(color: Colors.white),
+                          labelStyle:
+                              const TextStyle(color: ColorConstants.WHITE),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(14),
                             borderSide: const BorderSide(
-                              color: Colors.white,
+                              color: ColorConstants.WHITE,
                             ),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(14),
                             borderSide: const BorderSide(
-                              color: Colors.white,
+                              color: ColorConstants.WHITE,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(14),
                             borderSide: const BorderSide(
-                              color: Colors.white,
+                              color: ColorConstants.WHITE,
                             ),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(14),
                             borderSide: const BorderSide(
-                              color: Colors.white,
+                              color: ColorConstants.WHITE,
                             ),
                           ),
                         ),
@@ -200,7 +227,7 @@ class _LoginUIState extends State<LoginUI> {
                           child: const Text(
                             'Forgot password?',
                             style: TextStyle(
-                                color: Colors.white,
+                                color: ColorConstants.WHITE,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400),
                           ),
@@ -216,16 +243,16 @@ class _LoginUIState extends State<LoginUI> {
                           width: 48,
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
-                            color: Colors.white,
+                            color: ColorConstants.WHITE,
                             boxShadow: [BoxShadow(color: Colors.grey)],
                           ),
                           child: _isLoading
                               ? const SpinKitDoubleBounce(
-                                  color: Colors.pinkAccent,
+                                  color: ColorConstants.PRIMARY,
                                 )
                               : const Icon(
                                   Icons.arrow_forward,
-                                  color: Colors.pinkAccent,
+                                  color: ColorConstants.PRIMARY,
                                 ),
                         ),
                       ),
